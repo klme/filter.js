@@ -112,25 +112,6 @@ Filter.prototype.nega = function(){
   this.context.putImageData(this.imageData,0,0);
 }
 
-Filter.prototype.nega = function(){
-  if(!this.initFinishedFlag){
-        setTimeout(this.nega.bind(this),1);
-        return;
-      }
-  for(var j=0;j<this.img.height;j++){
-    for(var i=0;i<this.img.width;i++){
-      this.index = (j*this.img.width+i);
-      this.negaNumber = this.maxPlusMin(this.R[this.index],this.G[this.index],this.B[this.index])
-      this.bitmapData[this.index*4+0] = this.negaNumber-this.R[this.index];
-      this.bitmapData[this.index*4+1] = this.negaNumber-this.G[this.index];
-      this.bitmapData[this.index*4+2] = this.negaNumber-this.B[this.index];
-      this.bitmapData[this.index*4+3] = this.A[this.index];
-    }
-  }
-  this.context.putImageData(this.imageData,0,0);
-}
-
-
 
 Filter.prototype.maxPlusMin = function(r,g,b){
   if(r>=g&&b>=r||g>=r&&r>=b){
@@ -141,22 +122,3 @@ Filter.prototype.maxPlusMin = function(r,g,b){
     return g+r;
   }
 }
-
-
-
-Filter.prototype.nega = function(){
-    
-
-
-
-
-
-
-}
-
-
-
-
-
-
-
